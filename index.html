@@ -1,1 +1,205 @@
-Hello!
+<!DOCTYPE html>
+
+<head> <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+
+
+
+<link rel="stylesheet" type="text/css" href="commons.css">
+
+<link rel="shortcut icon" href="commons_favicon.ico" type="image/png">
+<title>The Commons</title>
+</head>
+
+<body>
+<div id="content-border">
+<div id="content">
+<div id="logo">
+	<h1>THE COMMONS</h1>
+	<h3>Academics <span class="flourish"></span> Policy <span class="flourish"></span> Activism</h3>
+</div>
+<div id="banner-border">
+<div id="banner">
+<p>The Commons connects academics to policymakers and activists. We help academics inform activism, craft op-eds on timely issues, and shape legislation.</p>
+</div>
+</div>
+
+
+
+<div id="form">
+
+<hr />
+
+
+
+<h2>JOIN THE COMMUNITY TO GET UPDATES</h2>
+
+
+<div id="thanks">
+
+<h4>Thank you for signing up.  You should receive a confirmation email shortly.</h4>
+
+<form class="ak-form" name="act" id="commons_optional" method="POST" action="javascript:submitForm('commons_optional');" accept-charset="utf-8">
+
+<h2>Tell us a little more about yourself.</h2>
+
+ <input type="hidden" id="email_opt" name="email" placeholder="Email address" class="required">
+  <input type="hidden" id="zip_opt" name="zip" placeholder="ZIP Code" class="required">
+ <input type="text" id="twitter" name="action_twitter" placeholder="Twitter Handle">
+  <input type="text" id="prof_website" name="action_prof_website" placeholder="Academic Website">
+	<textarea id="prof_research" name="action_prof_research" rows="5" placeholder="Tell us more about what your research" ></textarea>
+  <input type="hidden" name="required" value="country" />
+  <input type="hidden" id="action_id" name="action_original_action_id" />
+  <input type="submit" value="SUBMIT" /> 
+</form>
+</div>
+
+
+
+<form class="ak-form" name="act" id="join_commons" method="POST" action="javascript:submitForm('join_commons');" accept-charset="utf-8">
+
+  <input type="text" id="first_name" name="first_name" placeholder="First">
+  <input type="text" id="last_name" name="last_name" placeholder="Last">
+  <input type="email" id="email" name="email" placeholder="Email address" class="required">
+  <input type="tel" id="phone" name="phone" placeholder="Phone">
+  <input type="text" id="zip" name="zip" placeholder="ZIP Code" class="required">
+  <br /><br />
+  <input type="text" id="institution" name="action_university" placeholder="Affiliation (institution)">
+  <input type="text" id="title" name="action_title" placeholder="Title">
+  <input type="text" id="field" name="action_field" placeholder="Field">
+  	
+  <input type="hidden" name="country" value="United States" />
+
+  <input type="hidden" name="required" value="country" />
+  
+  <input type="submit" value="SUBMIT" /> 
+
+</form>
+
+<hr />
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="sitemap">
+<a href="http://boldprogressives.org/contact/">Contact</a> | <a href="http://boldprogressives.org/privacy-policy/">Privacy Policy</a>
+</div>
+
+<div id="disclaimer">
+Paid for by the Progressive Change Campaign Committee PAC (BoldProgressives.org) and not authorized by any candidate or candidate's committee. Contributions to the PCCC are not deductible as charitable contributions for federal income tax purposes.
+</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+  <script src="http://s3.amazonaws.com/s3.boldprogressives.org/wp-content/themes/premise/js/bootstrap.js.gzip"></script>
+  <script src="pccc-ak-async-post.js"></script>
+  
+  <script>
+
+   
+/* Serialize object into AJAX friendly array */   
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+
+/* Helper function to get variable from url */
+function getQueryVariable(init_query, variable)
+{
+		if (init_query.indexOf("?") != -1){ 
+	   var query = init_query.split("?");
+       
+       var vars = query[1].split("&");
+       for (var i=0;i<vars.length;i++) {
+
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       }else {
+       return(false);
+	}
+}
+
+
+/* Handle the form submission.
+/* Use ajax submission with data to AK from form.
+/* Submit to page value (hidden form input) */
+function submitForm(form){
+	var the_form = $("#"+form);
+	$("#email_opt").val($("#email").val());
+	$("#zip_opt").val($("#zip").val());
+	submitActionkitForm('signup_commons',  the_form.serializeObject());
+}
+	
+	
+/* Handle and track errors for validation.
+/* Add error class to invalid inputs */	
+function handleActionkitError(errors) { 
+      	$('.error').removeClass('error');
+     		$.each( errors , function(i, n){
+     			$("#"+i).addClass("error");
+		});
+}
+        
+
+
+/* Handle Action Kit submission success
+/* Form fades out to reveal a thanks message. */      
+function handleActionkitSuccess(form) {
+	var url = form;
+
+	$("#action_id").val(getQueryVariable(url, "action_id"));
+	
+    if($("#join_commons").is(":visible")){
+    $("#join_commons").fadeOut();
+    $("#thanks").fadeIn();
+    } else {
+    	$("#thanks form").fadeOut();
+    }
+      
+}
+
+
+/*Add source helper method
+/*Checks if source param is in url
+/*Injects hidden inputs if so */
+function addSource(){
+	var url = document.URL;
+	var source = getQueryVariable(url, "source");
+	
+	if(source != false){
+		$('form').append('<input type="hidden" name="source" value="'+source+'" />')
+	}
+}
+
+	
+$(document).ready(function(){
+addSource();
+
+
+});
+  
+  </script>
+  
+  
+</body>
+</html>

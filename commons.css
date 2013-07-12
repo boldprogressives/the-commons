@@ -1,0 +1,296 @@
+
+body{
+	font-family:"Times New Roman", Times, serif;
+	background-color:black;
+	color:white;
+	text-align:center;
+	background-image:url(commons-bg.jpg);
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+
+#content-border{
+	width:635px;
+	margin: 100px auto 0 auto;
+	padding:10px;
+	background-color:#f3f3f3;
+}
+
+#content{
+	padding:20px;
+	background-color:white;
+	color:black;
+	border:1px solid #c6c7c8;
+
+}
+
+hr {
+       height : 15px;
+       background : url(flourish.png) 50% 0 no-repeat;
+       margin : 1em 0;       
+       border: 0;
+}
+
+.flourish{
+       height : 15px;
+       width: 15px;
+       display: inline-block;
+       background : url(flourish-2.png) 50% 0 no-repeat;
+       margin : 0 5px;       
+       border: 0;
+}
+
+#logo h1{
+	color:#ab1a1a;
+	font-size:67px;
+	font-weight:400;
+	margin:10px 0 0 0 ;
+}
+
+#logo img{
+	margin:0 10px 0 10px;
+}
+
+h2{
+	font-size:20px;
+	font-weight:400;
+	margin:0;
+	margin-bottom:15px;
+}
+
+h3{
+	font-size:28px;
+	font-style:italic;
+	font-weight:400;
+	margin:0;
+}
+
+
+#form{
+	margin:20px 100px;
+}
+
+form{
+	margin 10px 0;
+}
+
+#first_name{
+	width:36%;
+}
+
+#last_name{
+	width:54%;
+}
+
+#email{
+	width:94%;
+}
+
+#phone{
+	width:50%;
+	margin-left:4px;
+}
+
+#zip{
+	width:40%;
+}
+
+#institution, #prof_research{
+	width:94%;
+}
+
+#title, #field, #twitter, #prof_website{
+	width:45%;
+}
+
+#banner{
+	font-size:25px;
+	width:100%;
+	margin-left: -50px;
+	padding:15px  50px ;
+	background-color:#ab1a1a;
+	color:white;
+	border-top:1px solid #e22b2b;
+	border-bottom:1px solid #e22b2b;
+
+}
+
+#banner-border{
+	font-size:25px;
+	postion:relative;
+	width:100%;
+	margin-left: -52px;
+	margin-top: 30px;
+	padding:5px  50px ;
+	background-color:#ab1a1a;
+	color:white;
+
+}
+
+
+#banner-border:before,
+		#banner-border:after {
+			content:" ";
+			border-top:20px solid #6a0000;
+			position:absolute;
+			top:411px;
+			} 
+			#banner-border:before {
+				border-left:20px solid transparent;
+				margin-left:-348px;
+				left:50%;
+				}
+			#banner-border:after {
+				border-right:20px solid transparent;
+				margin-right:-348px;
+				right:50%;
+				}
+			
+
+
+input, textarea{
+	background-color:#EEE;
+	border-top: 1px solid #cbcbcb;
+	border-right: 1px solid #cbcbcb;
+	border-left: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	font-size:18px;
+	font-family:"Times New Roman", Times, serif;
+	font-weight:400;
+   padding:5px;
+   margin: 4px 0;
+}
+input[type=submit] {
+	background-color:#ab1a1a;
+	width:390px;
+	color:white;
+	padding:10px;
+	margin:20px 0 10px 0;
+	font-size:18px;
+    border-color: #ab1a1a;
+     -webkit-appearance: none;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+	
+}
+
+p{
+	margin:0;
+	line-height: 30px;
+}
+img{
+	margin: 15px 0;
+}
+
+#footer{
+	width:655px;
+	margin: 100px auto 0 auto;
+}
+
+#sitemap{
+	font-size:18px;
+}
+
+a{
+	color:white;
+	text-decoration:none;
+}
+
+#disclaimer{
+	margin-top: 30px;
+	font-size:12px;
+	border:1px solid #CCC;
+	color:#ccc;
+	padding:10px;
+}
+
+#thanks {
+	display:none;
+	margin: 1em 0;
+
+}
+
+
+#thanks h4 {
+	font-size: 24px;
+	font-weight: 400;
+	color: #ab1a1a;
+}
+
+.error {
+	border: solid 1px #ab1a1a;
+}
+
+
+/* mobile styles */
+@media only screen 
+and (max-width : 767px)  {
+
+body{
+	background: #fff;
+	margin: 0;
+}
+
+#logo h1{
+	font-size: 40px;
+}
+
+#logo h3{
+	font-size: 16px;
+}
+
+#content-border{
+	width: auto;
+	margin: 0;
+	padding:0;
+	border: 0;
+}
+
+#content{
+	border: 0;
+	padding:0;
+	margin:0;
+}
+
+#banner{
+ font-size: 18px;
+ margin: 0;
+ width: 100%;
+ padding: 15px 0;
+}
+
+#banner-border{
+	margin: 1em 0;
+	width: 100%;
+	padding: 0;
+}
+
+#banner-border:before,
+		#banner-border:after {
+	display:none;
+}
+
+#footer{
+	width: 100%;
+	color: #333;
+}
+
+#footer a{
+	color: #ab1a1a;
+}
+
+#form{
+	margin:20px 10px;
+}
+
+#first_name, #last_name, #email, #phone, #zip, #institution, #title, #field, input, input[type=submit], textarea, #prof_research, 
+#twitter, #prof_website{
+	width:80%;
+	display:block;
+	clear:both;
+	margin: 10px auto;
+}
+
+
+}
